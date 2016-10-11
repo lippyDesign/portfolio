@@ -22,7 +22,7 @@ var windowWidth = $(window).width();
 
 // for portfoli filter jquary
 $(window).load(function(){
-    var $container = $('.portfolioContainer');
+    var $container = $('.portfolioWrapper');
     $container.isotope({
         filter: '*',
         animationOptions: {

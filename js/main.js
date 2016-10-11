@@ -55,26 +55,43 @@ const technicalSkills = [
 ];
 const education = [
     {
-        name: 'Justice Studies',
-        facility: 'San Jose State University',
-        date: 'May, 2012',
-        description: 'Bachelor of Science Degree'
-    },
-    {
         name: 'Police Academy',
         facility: 'Oakland Police Department',
         date: 'Mar, 2013',
         description: 'Police Officer Standards and Training Certificate'
+    },
+    {
+        name: 'Justice Studies',
+        facility: 'San Jose State University',
+        date: 'May, 2012',
+        description: 'Bachelor of Science Degree'
     }
 ];
 const projects = [
     {
-        technology: 'meteor',
+        id: 'p1',
+        technology: ['meteor', 'react'],
         url: 'http://cpabucket.meteorapp.com/',
         img: 'images/cpaBucketImage.png',
         title: 'CPA Bucket',
-        description: 'Social study platform. Created with Meteor and React. Database is managed via Mongo DB'
-    }
+        description: 'Social study platform. After registering, users can take practice tests in all 4 CPA sections, track their progress, add thier own questions and much more. Created with Meteor and React. Database is managed via Mongo DB'
+    },
+    {
+        id: 'p2',
+        technology: ['meteor', 'react'],
+        url: '#',
+        img: 'images/cpaBucketImage.png',
+        title: 'Battleship Game',
+        description: 'Computerized version of the popular board game. After registering a user can play against computer or another human opponent. Created with Meteor and React. Database is managed via Mongo DB'
+    },
+    {
+        id: 'p3',
+        technology: ['javascript'],
+        url: 'projects/restaurant-menu/index.html',
+        img: 'images/restaurant.png',
+        title: 'Restaurant Menu',
+        description: 'Basic ordering and payment system. Created with JavaScript and jQuery'
+    },
 ]
 
 $(document).ready(function() {
@@ -132,5 +149,31 @@ $(document).ready(function() {
                 </div>
             </div>
         `);
+    });
+
+    // loop through projects
+    projects.forEach(({id, technology, url, img, title, description}) => {
+        // append the projects to the page
+        $('.portfolioWrapper').append(`
+            <div class="flip" id="${id}"> 
+                <div class="card"> 
+                    <div class="face front">
+                        <img src="${img}" class="portfolioImage" alt="">
+                    </div>
+                    <div class="face back">
+                        <h2>${title}</h2>
+                        <p>${description}</p>
+                        <a href="${url}" target="_blank" class="text-primary">Demo</a>
+                    </div> 
+                </div> 
+            </div>
+        `);
+        // append the technologie classes for filtering
+        technology.forEach( tech => $(`#${id}`).addClass(`${tech}`));
+    });
+    /* card flip */
+    $(".flip").hover(function(){
+        $(this).find(".card").toggleClass("flipped");
+        return false;
     });
 });

@@ -1,34 +1,3 @@
-/* ------------------------------------------------------------------------------
-
-	Template Name: Coming soon
-	Template URI: http://http://www.themeelite.com/comingsoon
-	Description: Full Screen Coming Soon Template
-	Author: Andy
-	Author URI: http://www.themeelite.com
-	License: GNU General Public License version 3.0
-	License URI: http://www.gnu.org/licenses/gpl-3.0.html
-	Version: 1.0
-	
-	1. CSS Reset
-	2. Document Setup
-	3. Header Part
-		3.1 Slide show background control
-	4. Background slider CSS style
-	5. Menu Style
-	6. About me Style
-	7. Technical Skills Style
-	8. Work Experience Style
-	9. Education Style
-	10. Protfolio Style
-	11. Get in tuch Style
-	12. Footer Style
-	13. Responsive style
-		
-		
----------------------------------------------------------------------------------
-/* 1. CSS Reset
--------------------------------------------------------------------------------*/
-
 * {
 	padding:0;
 	margin:0;
@@ -690,7 +659,7 @@ header{
 .protfolio{
 	background:#2bb3dd;
 }
-.protfolio .container{
+.protfolio{
 	padding-top:85px ;
 	padding-bottom:90px ;
 }
@@ -705,15 +674,16 @@ header{
 
 
 .portfolioFilter{
-	display:block;
+	display:flex;
+	flex-direction: column;
 	margin:0 auto;
 	text-align: center;
+	border: 1px solid black;
 }
 
 .portfolioFilter ul{
 	margin:0 auto;
 	text-align:center;
-	display:block;
 	margin-bottom:30px;
 }
 .portfolioFilter ul li{
@@ -1117,7 +1087,100 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 .footer ul li a i{
 	line-height:42px !important;
 }
+/* card flip */
+.portfolioWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid red;
+}
+.flip {
+  -webkit-perspective: 800;
+  -ms-perspective: 800;
+  -moz-perspective: 800;
+  -o-perspective: 800;
+   width: 400px;
+   height: 350px;
+   position: relative;
+   margin: 30px auto;
+}
+.flip img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.portfolioImage {
+	border: 1px solid gray;
+}
+.flip .card.flipped {
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 1em;
+  text-align: center;
+  backface-visibility: hidden;  /* W3C */
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
 
+}
+.flip .card .front {
+  position: absolute;
+  z-index: 1;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+.flip .card .back {
+    background: blue;
+    background: white;
+    color: black;
+    cursor: pointer;
+    
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+.flip h2 {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+.flip p {
+	font-size: 16px;
+}
+.flip a {
+	font-size: 20px;
+}
 
 
 	
