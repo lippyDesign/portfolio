@@ -658,6 +658,7 @@ header{
 ------------------------------------------------------*/
 .protfolio{
 	background:#2bb3dd;
+	text-align: center;
 }
 .protfolio{
 	padding-top:85px ;
@@ -676,14 +677,10 @@ header{
 .portfolioFilter{
 	display:flex;
 	flex-direction: column;
-	margin:0 auto;
 	text-align: center;
-	border: 1px solid black;
 }
 
 .portfolioFilter ul{
-	margin:0 auto;
-	text-align:center;
 	margin-bottom:30px;
 }
 .portfolioFilter ul li{
@@ -1093,17 +1090,17 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid red;
+	margin-bottom: 30px;
 }
 .flip {
   -webkit-perspective: 800;
   -ms-perspective: 800;
   -moz-perspective: 800;
   -o-perspective: 800;
-   width: 400px;
-   height: 350px;
+   width: 350px;
+   height: 300px;
    position: relative;
-   margin: 30px auto;
+   margin: 15px;
 }
 .flip img {
 	width: 100%;
@@ -1170,6 +1167,9 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
   -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
   -o-transform:rotatey(-180deg); /* Opera */
 }
+.back {
+	padding: 5px;
+}
 .flip h2 {
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -1180,6 +1180,9 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 }
 .flip a {
 	font-size: 20px;
+}
+.gitHubReferal {
+	font-size: 1.3em;
 }
 
 

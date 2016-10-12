@@ -80,7 +80,7 @@ const projects = [
         id: 'p2',
         technology: ['meteor', 'react'],
         url: '#',
-        img: 'images/cpaBucketImage.png',
+        img: 'images/battleship.png',
         title: 'Battleship Game',
         description: 'Computerized version of the popular board game. After registering a user can play against computer or another human opponent. Created with Meteor and React. Database is managed via Mongo DB'
     },
@@ -91,6 +91,30 @@ const projects = [
         img: 'images/restaurant.png',
         title: 'Restaurant Menu',
         description: 'Basic ordering and payment system. Created with JavaScript and jQuery'
+    },
+    {
+        id: 'p4',
+        technology: ['javascript'],
+        url: 'projects/foreign-exchange-rates/index.html',
+        img: 'images/currency-exchange.png',
+        title: 'Currency Exchange',
+        description: 'Basic application that makes an API request to get the current currency exchange rates. The app then builds a list of available rates. Created with JavaScript and jQuery'
+    },
+    {
+        id: 'p5',
+        technology: ['javascript'],
+        url: 'projects/calculator-jquery/index.html',
+        img: 'images/calculator.png',
+        title: 'Calculator',
+        description: 'Simple calculator that can evaluate basic mathematic expressions. Created with JavaScript and jQuery'
+    },
+    {
+        id: 'p6',
+        technology: ['meteor', 'react'],
+        url: '#',
+        img: 'images/todos.png',
+        title: 'Todos Organizer',
+        description: 'Cool todos aorganizer. After registering a user can add tasks, select who can view the tasks, delete tasks and complete tasks. Created with Meteor and React. Database is managed via Mongo DB'
     },
 ]
 
@@ -150,9 +174,29 @@ $(document).ready(function() {
             </div>
         `);
     });
+    // get the projects
+    getProjects(projects);
 
+    $(".portfolioNav a").click(function(e){
+        e.preventDefault();
+        let tech = this.id;
+        if (tech !== "all") {
+            techArray = projects.filter(({technology}) => {
+                return technology.some( current => current === tech)
+            });
+            $('.portfolioWrapper').empty();
+            getProjects(techArray);
+        } else {
+            $('.portfolioWrapper').empty();
+            getProjects(projects);
+        }
+    });
+
+});
+
+function getProjects(projectsArray){
     // loop through projects
-    projects.forEach(({id, technology, url, img, title, description}) => {
+    projectsArray.forEach(({id, technology, url, img, title, description}) => {
         // append the projects to the page
         $('.portfolioWrapper').append(`
             <div class="flip" id="${id}"> 
@@ -167,13 +211,14 @@ $(document).ready(function() {
                     </div> 
                 </div> 
             </div>
-        `);
+        `).hide().show('fast');
         // append the technologie classes for filtering
         technology.forEach( tech => $(`#${id}`).addClass(`${tech}`));
     });
+
     /* card flip */
     $(".flip").hover(function(){
         $(this).find(".card").toggleClass("flipped");
         return false;
     });
-});
+}
