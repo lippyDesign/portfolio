@@ -567,7 +567,7 @@ header{
 .workDetails:last-child .rightArea{
 	padding-bottom:0px;
 }
-.workYear{
+.workYear, .courseYear {
 	font-size:17px;
 	color:#fff;
 	background:#ff675f;
@@ -578,6 +578,12 @@ header{
 	
 	-webkit-border-radius: 50%;
     border-radius: 50%;
+}
+.courseYear {
+	width:80px;
+	padding-top: 27px;
+	height:80px;
+	float: right;
 }
 
 
@@ -1151,8 +1157,8 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 .flip .card .front {
   position: absolute;
   z-index: 1;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   cursor: pointer;
 }
 .flip .card .back {
@@ -1167,7 +1173,7 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
   -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
   -o-transform:rotatey(-180deg); /* Opera */
 }
-.back {
+.front {
 	padding: 5px;
 }
 .flip h2 {
@@ -1180,6 +1186,32 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 }
 .flip a {
 	font-size: 20px;
+}
+.demoLinkWrapper {
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 1000;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.demoLink {
+	color: white;
+	border: 1px solid white;
+	padding: 5px 10px;
+}
+.demoLink:hover {
+	text-decoration: none;
+	color: black;
+	background: white;
+}
+.demoLink:active, .demoLink:focus {
+	color: white !important;
+	background: transparent;
+	text-decoration: none !important;
 }
 .gitHubReferal {
 	font-size: 1.3em;
@@ -1280,8 +1312,11 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 	.navbar-header{
 		display:block;
 	}
-	.workYear{
+	.workYear, .courseYear{
 		margin:0 auto;
+	}
+	.courseYear {
+		float: none;
 	}
 	.workDetails .rightArea{
 		border-left:none;

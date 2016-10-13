@@ -67,6 +67,53 @@ const education = [
         description: 'Bachelor of Science Degree'
     }
 ];
+const courses = [
+    {
+        name: "Advanced Javascript",
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: "JavaScript: Understanding the Weird Parts",
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: "ES6 Javascript: The Complete Developer's Guide",
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: "Meteor and React for Realtime Apps",
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: 'Modern React with Redux',
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: 'The Complete React Native and Redux Course',
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: 'Build Apps with React Native',
+        platform: 'Udemy',
+        year: '2016'
+    },
+    {
+        name: 'Introduction to Computer Science and Programming Using Python',
+        platform: 'MIT Course via EDX',
+        year: '2016'
+    },
+    {
+        name: 'Swift programming for iOS with Parse.',
+        platform: 'Udemy',
+        year: '2015'
+    },
+]
 const projects = [
     {
         id: 'p1',
@@ -174,12 +221,34 @@ $(document).ready(function() {
             </div>
         `);
     });
+
+    // loop over courses
+    courses.forEach(({name, platform, year}) => {
+        // append courses to the page
+        $('#educationHeadingCert').append(`
+            <div class="row workDetails">
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                    <div class="courseYear">${year}</div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 rightArea">
+                    <div class="arrowpart"></div>
+                    <div class="exCon">
+                        <h4>${name}</h4>
+                        <h5>${platform}</h5>
+                    </div>
+                </div>
+            </div>
+        `);
+    });
+
     // get the projects
     getProjects(projects);
 
     $(".portfolioNav a").click(function(e){
         e.preventDefault();
         let tech = this.id;
+        $('.portfolioNav a').removeClass('current');
+        $( this ).addClass( "current" );
         if (tech !== "all") {
             techArray = projects.filter(({technology}) => {
                 return technology.some( current => current === tech)
@@ -202,12 +271,14 @@ function getProjects(projectsArray){
             <div class="flip" id="${id}"> 
                 <div class="card"> 
                     <div class="face front">
-                        <img src="${img}" class="portfolioImage" alt="">
-                    </div>
-                    <div class="face back">
                         <h2>${title}</h2>
                         <p>${description}</p>
-                        <a href="${url}" target="_blank" class="text-primary">Demo</a>
+                    </div>
+                    <div class="face back">
+                        <img src="${img}" class="portfolioImage" alt="${title} image">
+                        <div class="demoLinkWrapper">
+                            <a href="${url}" target="_blank" class="demoLink">Demo</a>
+                        </div>
                     </div> 
                 </div> 
             </div>
